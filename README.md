@@ -1,23 +1,24 @@
 # threedy
-## Home Asssistant card for 3D printers (via OctoPrint integration)
+## Home Asssistant card for duet 3D printers (via duet integration)
+This card has been taken from https://github.com/dangreco/threedy and has been made compatible with the duet integration. Most of the work has not been done by me.
 
-
-![Featured](https://github.com/e11en/ha-threedy-card/raw/master/screenshots/active.png)
+![Featured](https://github.com/repier37/ha-threedy-card/raw/master/screenshots/active.png)
 
 # Table of Contents
-- [Features](#-features)
-- [Prerequisites](#-prerequisites)
-- [Installation](#-installation)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
   - [Method 1: HACS](#method-1-hacs)
   - [Method 2: Manual](#method-2-manual)
-- [Config](#-config)
-  - [Graphical](#-Graphical)
+- [Config](#config)
+  - [Graphical](#graphical)
   - [Manual](#manual)
     - [Required](#required)
     - [Optional](#optional)
-- [Example Config](#-example-config)
-- [Custom Theming](#-custom-theming)
-- [Screenshots](#-screenshots)
+- [Example Config](#example-config)
+- [Custom Theming](#custom-theming)
+- [Limitations](#limitations)
+- [Screenshots](#screenshots)
   - [Active Print](#active-print)
   - [Idle](#idle)
   - [Printer Offline](#printer-offline)
@@ -28,7 +29,7 @@
 
 - Live animation of 3D printer
 - Live camera view
-- Current states of various OctoPrint sensors
+- Current states of various duet sensors
 - Tap to show/hide when printer is idle
 - Power button for a switch entity
 - Light button for a switch entity
@@ -38,10 +39,9 @@
 
 ## Prerequisites
 ---
-- [OctoPrint](https://octoprint.org/)-enabled 3D printer
+- [Duet](https://www.duet3d.com/)- 3d printer with duet card
 - [Home Assistant](https://www.home-assistant.io/) instance
-- Home Assistant [OctoPrint integration](https://www.home-assistant.io/integrations/octoprint/)
-  - *** Make sure to expose all available data entities for your printer! ***
+- Home Assistant [Duet integration](https://github.com/Lyr3x/hass-Duet3D)
 
 
 ## Installation
@@ -69,7 +69,7 @@
 ## Config
 ---
 
-### Graphical (Recommended)
+### Graphical
 
 ![graphical](https://github.com/e11en/ha-threedy-card/raw/master/screenshots/graphical.png)
 
@@ -144,7 +144,8 @@ card:
     .
     <card config>
 ```
-
+## Limitations
+For the moment only the first tool of your printer can be displayed
 
 ## Screenshots
 ---
@@ -164,4 +165,9 @@ card:
 ### Show/Hide Animation
 
 ![ShowHide](https://media.giphy.com/media/14VgtFSulJkOaRiZFo/giphy.gif)
+
+
+## Thank you !!
+If you found this useful you can thank me via donation :
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=GR74XEN538Y7L)
 
