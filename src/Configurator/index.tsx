@@ -37,6 +37,7 @@ const Configurator = ({ hass, config, threedy }) => {
     const _updateConfig = ( updates ) => setModifiedConfig( updateConfig(threedy, modifiedConfig, updates) );
     const _updateValue = (key, value) => {
         console.log("Update value", key, value);
+        console.log("test", key, value);
         updateValue( _updateConfig, key, value);
     }
 

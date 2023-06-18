@@ -5,6 +5,8 @@ import ThreedyContext from '../../Contexts/ThreedyContext';
 
 import styles from './styles';
 import getDimensions from './utils';
+import { getEntityName } from '../../Components/Stats/utils';
+import { ThreedyCondition } from '../../types';
 
 const Cantilever = ({ printerConfig }) => {
 
@@ -27,8 +29,8 @@ const Cantilever = ({ printerConfig }) => {
         },
     });
 
-    const printing = (hass.states[config.use_mqtt ? `${config.base_entity}_print_status` : `${config.base_entity}_current_state`] || { state: "unknown" }).state === 'Printing';
-    const progress = (hass.states[config.use_mqtt ? `${config.base_entity}_print_progress` : `${config.base_entity}_job_percentage`] || { state: 0 }).state / 100;
+    const printing = (hass.states[getEntityName(config, ThreedyCondition.Status)] || { state: "unknown" }).state === 'processing';
+    const progress = (hass.states[getEntityName(config, ThreedyCondition.Progress)] || { state: 0 }).state / 100;
 
     const x = useMotionValue(0);
 

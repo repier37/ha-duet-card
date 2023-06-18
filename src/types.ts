@@ -14,7 +14,8 @@ export enum ThreedyCondition {
     Elapsed = "Elapsed",
     Hotend = "Hotend",
     Bed = "Bed",
-    Remaining = "Remaining"
+    Remaining = "Remaining",
+    Progress = 'Progress'
 
 }
 

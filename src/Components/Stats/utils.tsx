@@ -5,29 +5,35 @@ import { getEntity } from '../../Utils/HomeAssistant';
 import Stat from "./Stat";
 import TimeStat from "./TimeStat";
 
-
-/*
-
-
-    const entityEnding = (() => {
-        switch (condition) {
-            case 'Status':
-                return config.use_mqtt ? '_print_status' : '_current_state'
-            case 'ETA':
-                return config.use_mqtt ? '_print_time_left' : '_time_remaining'
-            case 'Elapsed':
-                return config.use_mqtt ? '_print_time' : '_time_elapsed'
-            case 'Hotend':
-                return config.use_mqtt ? '_tool_0_temperature' : '_actual_tool0_temp'
-            case 'Bed':
-                return config.use_mqtt ? '_bed_temperature' : '_actual_bed_temp'
-            default:
-                return undefined
-        }
-    })();
-
-
+/**
+ * Function to get the name opf an entity correspondingh to a given condition and the configured entity
+ * @param config 
+ * @param condition 
+ * @returns 
  */
+const getEntityName = (
+    config: ThreedyConfig,
+    condition: ThreedyCondition
+): string | undefined => {
+    const baseName = config.base_entity;
+    console.log("Base name is: ", baseName);
+    switch (condition) {
+        case 'Status':
+            return `${baseName}_current_state`
+        case 'Remaining':
+            return `${baseName}_time_remaining`
+        case 'Elapsed':
+            return `${baseName}_time_elapsed`
+        case 'Hotend':
+            return `${baseName}_tool_1_current_temperature`
+        case 'Bed':
+            return `${baseName}_tool_bed_current_temperature`
+        case 'Progress':
+            return `${baseName}_progress`
+        default:
+            return undefined
+    }
+};
 
 
 /**
@@ -41,10 +47,11 @@ const renderCondition = (
     config: ThreedyConfig,
     condition: ThreedyCondition | string
 ) => {
+    
+    const statusEntity = getEntity(hass, getEntityName(config, ThreedyCondition.Status));
 
-    const entity = (suffix: string) => getEntity(hass, `${config.base_entity}${suffix}`);
-    const mqtt = config.use_mqtt;
-    const printerStatus = entity( mqtt ? '_print_status' : '_current_state').state;
+    const printerStatus = statusEntity.state;
+    console.log("Printer status is ", printerStatus);
 
     switch (condition) {
         case ThreedyCondition.Status:
@@ -57,7 +64,7 @@ const renderCondition = (
         case ThreedyCondition.ETA:
             return (
                 <TimeStat
-                    timeEntity={ entity( mqtt ? '_print_time_left' : '_time_remaining' ) }
+                    timeEntity={ getEntity(hass, getEntityName(config, ThreedyCondition.Remaining)) }
                     condition={condition}
                     config={config}
                     direction={0}
@@ -67,7 +74,7 @@ const renderCondition = (
         case ThreedyCondition.Elapsed:
             return (
                 <TimeStat
-                    timeEntity={ entity( mqtt ? '_print_time' : '_time_elapsed' ) }
+                    timeEntity={ getEntity(hass,getEntityName(config, condition)) }
                     condition={condition}
                     config={config}
                     direction={1}
@@ -78,7 +85,7 @@ const renderCondition = (
         case ThreedyCondition.Remaining:
             return (
                 <TimeStat
-                    timeEntity={ entity( mqtt ? '_print_time_left' : '_time_remaining' ) }
+                    timeEntity={ getEntity(hass, getEntityName(config, condition)) }
                     condition={condition}
                     config={config}
                     direction={-1}
@@ -90,7 +97,7 @@ const renderCondition = (
             return (
                 <TemperatureStat
                     name={"Bed"}
-                    temperatureEntity={ entity( mqtt ? '_bed_temperature' : '_actual_bed_temp' ) }
+                    temperatureEntity={ getEntity(hass, getEntityName(config, condition))  }
                     config={config}
                 />
             )
@@ -99,7 +106,7 @@ const renderCondition = (
             return (
                 <TemperatureStat
                     name={"Hotend"}
-                    temperatureEntity={ entity( mqtt ? '_tool_0_temperature' : '_actual_tool0_temp' ) }
+                    temperatureEntity={ getEntity(hass,getEntityName(config, condition)) }
                     config={config}
                 />
             )
@@ -137,10 +144,11 @@ const percentComplete = (
     hass: HomeAssistant,
     config: ThreedyConfig
 ) => {
-    return (hass.states[config.use_mqtt ? `${config.base_entity}_print_progress` : `${config.base_entity}_job_percentage`] || { state: -1.0 }).state;
+    return (hass.states[`sensor.dbot_progress`] || { state: -1.0 }).state;
 }
 
 export {
     renderStats,
-    percentComplete
+    percentComplete,
+    getEntityName
 }

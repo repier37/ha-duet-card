@@ -10,28 +10,28 @@
             {
                 document.getElementsByTagName(tag)[0].hass = {
                     states: {
-                        'sensor.ender_3_v2_current_state' : {
-                            state: "Printing"
+                        'sensor.dbot_current_state' : {
+                            state: "processing"
                         },
-                        'sensor.ender_3_v2_job_percentage' : {
+                        'sensor.dbot_progress' : {
                             state: 52.12
                         },
-                        'sensor.ender_3_v2_actual_tool0_temp' : {
+                        'sensor.dbot_tool_1_current_temperature' : {
                             state: 214.7,
                             attributes: {
                                 unit_of_measurement: "°C"
                             }
                         },
-                        'sensor.ender_3_v2_actual_bed_temp' : {
+                        'sensor.dbot_tool_bed_current_temperature' : {
                             state: 65.1,
                             attributes: {
                                 unit_of_measurement: "°C"
                             }
                         },
-                        'sensor.ender_3_v2_time_elapsed' : {
+                        'sensor.dbot_time_elapsed' : {
                             state: 37,
                         },
-                        'sensor.ender_3_v2_time_remaining' : {
+                        'sensor.dbot_time_remaining' : {
                             state: 65,
                         },
                         'switch.ender': {
@@ -61,8 +61,8 @@
             {
                 document.getElementsByTagName(tag)[0].setConfig({
                     type: 'custom:threedy-card',
-                    base_entity: 'sensor.ender_3_v2',
-                    name: "Ender 3 v2",
+                    base_entity: 'sensor.dbot',
+                    name: "dbot",
                     theme: "Neumorphic",
                     scale: 1,
                     temperature_unit: 'C',

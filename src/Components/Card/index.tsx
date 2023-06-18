@@ -11,7 +11,8 @@ import Stats from '../Stats';
 
 import styles from './styles';
 import Camera from "../Camera";
-import {percentComplete} from "../Stats/utils";
+import {getEntityName, percentComplete} from "../Stats/utils";
+import { ThreedyCondition } from '../../types';
 
 
 const Card = ({ }) => {
@@ -47,21 +48,36 @@ const Card = ({ }) => {
 
     const borderRadius = styles[theme] ? styles[theme].borderRadius : styles['Default'].borderRadius;
 
-    const state = (hass.states[config.use_mqtt ? `${config.base_entity}_print_status` : `${config.base_entity}_current_state`] || {state: 'unknown'}).state
+    const state = (hass.states[getEntityName(config, ThreedyCondition.Status)]).state;
+    console.log("State is: ",state);
     const light_on = config.light_entity ? (hass.states[config.light_entity] || {state: 'off'}).state === 'on' : false;
 
     const neumorphicShadow = hass.themes.darkMode ? '-5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08)' : '-4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03)'
     const defaultShadow = 'var( --ha-card-box-shadow, 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12) )'
 
-    const hidden = state !== 'Printing' && !hiddenOverride;
-    const statusColor =
-        state === 'Printing' ?
-            "#4caf50"
-            : state === "unknown" ?
-                "#f44336"
-                : state === "Operational" ?
-                    "#00bcd4"
-                    : "#ffc107"
+    const hidden = state !== 'processing' && !hiddenOverride;
+    var statusColor ="#ffc107";
+    switch (state) {
+        case 'processing':
+            statusColor="#4caf50";
+            break;
+        case 'unknown':
+            statusColor = "#f44336";
+            break;
+        case "idle":
+            statusColor="#00bcd4";
+            break;
+        default:
+            statusColor = "#ffc107"
+    }
+    // const statusColor =
+    //     state === 'processing' ?
+    //         "#4caf50"
+    //         : state === 'unknown' ?
+    //             "#f44336"
+    //             : state === 'idle' ?
+    //                 "#00bcd4"
+    //                 : "#ffc107"
 
     return (
         <motion.div

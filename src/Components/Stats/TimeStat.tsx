@@ -79,7 +79,9 @@ const TimeStat: React.FC<TimeStatProps> = ({timeEntity, condition, config, direc
     const [ lastIntervalId, setLastIntervalId ] = useState<number>(-1);
 
     const incTime = () => setTime( time => (parseInt(time) + parseInt(direction)) );
-    const showEmpty = status != "Printing";
+    //TODO CHANGE THIS AFTER DEBUG (should be !=)
+    const showEmpty = status != "processing";
+    console.log("Shows empty: ", status);
 
     useEffect(() => {
 
