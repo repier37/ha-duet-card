@@ -60,7 +60,7 @@
             function setConfig(tag)
             {
                 document.getElementsByTagName(tag)[0].setConfig({
-                    type: 'custom:threedy-card',
+                    type: 'custom:duet-card',
                     base_entity: 'sensor.dbot',
                     name: "dbot",
                     theme: "Neumorphic",
@@ -86,14 +86,14 @@
 
             function load()
             {
-                setHass('threedy-card');
-                setConfig('threedy-card');
+                setHass('duet-card');
+                setConfig('duet-card');
             }
 
             function loadConfig()
             {
-                setHass('threedy-editor');
-                setConfig('threedy-editor');
+                setHass('duet-editor');
+                setConfig('duet-editor');
             }
 
         </script>
@@ -137,7 +137,7 @@
 
         </style>
 
-        <script src='./threedy-card.js'></script>
+        <script src='./duetcard.js'></script>
 
     </head>
 
@@ -145,12 +145,12 @@
 
 
     <div class="FauxColumn">
-            <threedy-card>
+            <duet-card>
 
-            </threedy-card>
-            <threedy-editor>
+            </duet-card>
+            <dueteditor>
 
-            </threedy-editor>
+            </duet-editor>
         </div>
 
         <button id="Loader" onclick="load()">

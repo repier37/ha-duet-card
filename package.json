@@ -1,9 +1,9 @@
 {
-  "name": "ha-threedy-card",
+  "name": "ha-duet-card",
   "version": "1.0.0",
   "description": "Home Assistant card for 3D printer status and management.",
   "main": "src/index.tsx",
-  "repository": "https://github.com/e11en/ha-threedy-card",
+  "repository": "https://github.com/repier37/ha-duet-card",
   "author": "Ellen Langelaar",
   "license": "MIT",
   "dependencies": {
