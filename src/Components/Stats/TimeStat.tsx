@@ -69,7 +69,6 @@ const TimeStat: React.FC<TimeStatProps> = ({timeEntity, condition, config, direc
     const incTime = () => setTime( time => (parseInt(time) + parseInt(direction)) );
     //TODO CHANGE THIS AFTER DEBUG (should be !=)
     const showEmpty = status != "processing";
-    console.log("Shows empty: ", status);
 
     useEffect(() => {
 

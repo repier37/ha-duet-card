@@ -16,7 +16,6 @@ const getEntityName = (
     condition: ThreedyCondition
 ): string | undefined => {
     const baseName = config.base_entity;
-    console.log("Base name is: ", baseName);
     switch (condition) {
         case 'Status':
             return `${baseName}_current_state`
@@ -51,7 +50,6 @@ const renderCondition = (
     const statusEntity = getEntity(hass, getEntityName(config, ThreedyCondition.Status));
 
     const printerStatus = statusEntity.state;
-    console.log("Printer status is ", printerStatus);
 
     switch (condition) {
         case ThreedyCondition.Status:
@@ -144,7 +142,7 @@ const percentComplete = (
     hass: HomeAssistant,
     config: ThreedyConfig
 ) => {
-    return (hass.states[`sensor.dbot_progress`] || { state: -1.0 }).state;
+    return (hass.states[getEntityName(config, ThreedyCondition.Progress)] || { state: -1.0 }).state;
 }
 
 export {
