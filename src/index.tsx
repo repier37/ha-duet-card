@@ -91,15 +91,15 @@ class ThreedyCard extends HTMLElement {
 
 }
 
-customElements.define('threedy-card', ThreedyCard);
+customElements.define('duet-card', ThreedyCard);
 
 
 // @ts-ignore
 window.customCards = window.customCards || [];
 // @ts-ignore
 window.customCards.push({
-    type: 'threedy-card',
-    name: "Threedy Card",
+    type: 'duet-card',
+    name: "DuetThreedy Card",
     preview: false,
-    description: "OctoPrint 3D Printer Card"
+    description: "Duet 3D Printer Card"
 })
