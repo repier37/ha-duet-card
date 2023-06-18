@@ -1,8 +1,8 @@
-# threedy
+# Duet 3D Card
 ## Home Asssistant card for duet 3D printers (via duet integration)
 This card has been taken from https://github.com/dangreco/threedy and has been made compatible with the duet integration. Most of the work has not been done by me.
 
-![Featured](https://github.com/repier37/ha-threedy-card/raw/master/screenshots/active.png)
+![Featured](https://github.com/repier37/ha-duet-card/raw/master/screenshots/active.png)
 
 # Table of Contents
 - [Features](#features)
@@ -49,9 +49,8 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 ### Method 1: HACS
 1. Open _HACS_ and navigate to _Frontend_ Section
 2. Open the Overflow Menu (⋮) in the top right corner and click on _Custom repositories_
-3. 
-4. Paste `https://github.com/repier37/ha-threedy-card` into the input field and select `Lovelace` from the dropdown
-5. Click the Install Button on the highlighted Card titled _threedy_
+3. Paste `https://github.com/repier37/ha-duet-card` into the input field and select `Lovelace` from the dropdown
+4. Click the Install Button on the highlighted Card titled _threedy_
 
 ### Method 2: Manual
 
@@ -71,7 +70,7 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 
 ### Graphical
 
-![graphical](https://github.com/e11en/ha-threedy-card/raw/master/screenshots/graphical.png)
+![graphical](https://github.com/repier37/ha-duet-card/raw/master/screenshots/graphical.png)
 
 
 ### Manual
@@ -93,7 +92,6 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 - ```round_temperature``` &mdash; Specify whether to round decimal numbers for temperatures. Defaults to false. ```true | false```
 - ```temperature_unit``` &mdash; Specify which unit of temperature measurement to convert to. ```'F' | 'C' ```
 - ```use_24hr``` &mdash; Use 24 hour time format instead of 12 hour.
-- ```use_mqtt``` &mdash; Use [MQTT integration](https://plugins.octoprint.org/plugins/homeassistant/) instead of OctoPrint API.
 - ```printer_config``` &mdash; Use in with ```printer_type``` to set a custom printer style. If omitted, the default for the type will be used. Use [this tool](https://google.com) to create a custom value.
 - ```camera_entity``` &mdash; Specify the entity ID of the camera entity you want to display **when the printer graphic is clicked**.
 - ```light_entity``` &mdash; Specify the entity ID of a light you want to toggle for the printer.
@@ -152,15 +150,15 @@ For the moment only the first tool of your printer can be displayed
 
 ### Active Print
 
-![Active](https://github.com/e11en/ha-threedy-card/raw/master/screenshots/active.png)
+![Active](https://github.com/repier37/ha-duet-card/raw/master/screenshots/active.png)
 
 ### Idle
 
-![Idle](https://github.com/e11en/ha-threedy-card/raw/master/screenshots/idle.png)
+![Idle](https://github.com/repier37/ha-duet-card/raw/master/screenshots/idle.png)
 
 ### Printer Offline
 
-![Offline](https://github.com/e11en/ha-threedy-card/raw/master/screenshots/offline.png)
+![Offline](https://github.com/repier37/ha-duet-card/raw/master/screenshots/offline.png)
 
 ### Show/Hide Animation
 
