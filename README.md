@@ -49,8 +49,9 @@
 ### Method 1: HACS
 1. Open _HACS_ and navigate to _Frontend_ Section
 2. Open the Overflow Menu (⋮) in the top right corner and click on _Custom repositories_
-3. Paste `https://github.com/e11en/ha-threedy-card` into the input field and select `Lovelace` from the dropdown
-4. Click the Install Button on the highlighted Card titled _threedy_
+3. 
+4. Paste `https://github.com/repier37/ha-threedy-card` into the input field and select `Lovelace` from the dropdown
+5. Click the Install Button on the highlighted Card titled _threedy_
 
 ### Method 2: Manual
 
