@@ -1,4 +1,4 @@
-# threedy
+# Duet 3D Card
 ## Home Asssistant card for duet 3D printers (via duet integration)
 This card has been taken from https://github.com/dangreco/threedy and has been made compatible with the duet integration. Most of the work has not been done by me.
 
