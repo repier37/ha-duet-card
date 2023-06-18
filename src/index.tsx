@@ -99,7 +99,7 @@ window.customCards = window.customCards || [];
 // @ts-ignore
 window.customCards.push({
     type: 'duet-card',
-    name: "DuetThreedy Card",
+    name: "Duet Card",
     preview: false,
     description: "Duet 3D Printer Card"
 })
