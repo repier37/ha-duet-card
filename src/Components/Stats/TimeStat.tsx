@@ -49,19 +49,7 @@ const getTotalSeconds = (
     timeEntity: HassEntity,
     config: ThreedyConfig
 ) => { 
-    let result;   
-    if(!config.use_mqtt){
-        result = timeEntity != undefined ? parseInt(timeEntity.state) : 0;
-    } else {
-        if(timeEntity.state){
-            const [hours, minutes, seconds] = timeEntity.state.split(':');
-            result = (+hours) * 60 * 60 + (+minutes) * 60 + (+seconds);
-
-        } else {
-            result = 0;
-        }
-    }
-    return result;
+        return timeEntity.state*60;
 }
 
 
