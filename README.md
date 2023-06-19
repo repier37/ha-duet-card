@@ -40,14 +40,8 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 
 ## Installation
 ---
-1. Go to [HACS](http://homeassistant.local:8123/hacs/frontend)
-2. Add custom repository 
-   - repo: https://github.com/repier37/ha-duet-card
-   - Category: Lovelace
-   - Click add
-  
-3. Search "duet"
-4. Click the Install Button on the highlighted Card titled _duet_
+1. [![image](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=repier37&repository=ha-duet-card&category=lovelace)
+2. Click the Install Button on the highlighted Card titled _duet_
 
 ## Config
 ---
