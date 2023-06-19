@@ -18,7 +18,18 @@ import {
 
 import styles from './styles';
 import FewSelector from "./Components/FewSelector";
-import {ThreedyCondition, ThreedyPrinter, ThreedyTheme} from '../types';
+import {ThreedyCondition, ThreedyConfig, ThreedyPrinter, ThreedyTheme} from '../types';
+import { getEntityName } from '../Components/Stats/utils';
+import { getEntity } from '../Utils/HomeAssistant';
+
+const HasSecondHotEnd =
+    (hass, config: ThreedyConfig): boolean =>{
+        if(!config){
+            return false;
+        }
+
+        return  getEntity(hass, getEntityName(config, ThreedyCondition.Hotend2)) != undefined
+    }
 
 
 const Configurator = ({ hass, config, threedy }) => {
@@ -40,6 +51,9 @@ const Configurator = ({ hass, config, threedy }) => {
         console.log("test", key, value);
         updateValue( _updateConfig, key, value);
     }
+
+    const ShowSecondHotend = HasSecondHotEnd(hass, config);
+    console.log("second hot end found?", ShowSecondHotend);
 
     if (!config) return (<div/>)
 
@@ -75,9 +89,11 @@ const Configurator = ({ hass, config, threedy }) => {
                                 initial={config.name || modifiedConfig.name}
                             />
 
+                            
                             <p style={{ ...styles.Label }}>Monitored</p>
                             <MultiSelector
-                                items={ ThreedyCondition }
+                                items={ShowSecondHotend ? ThreedyCondition : Object.values(ThreedyCondition).filter(item => item !== ThreedyCondition.Hotend2)}
+                                // items={ ThreedyCondition }
                                 initial={config.monitored}
                                 onChange={selectedValues => _updateValue('monitored', selectedValues)}
                             />

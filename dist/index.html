@@ -19,7 +19,15 @@
                         'sensor.dbot_tool_1_current_temperature' : {
                             state: 214.7,
                             attributes: {
-                                unit_of_measurement: "°C"
+                                unit_of_measurement: "°C",
+                                friendly_name: "Coucou"
+                            }
+                        },
+                        'sensor.dbot_tool_2_current_temperature' : {
+                            state: 180.7,
+                            attributes: {
+                                unit_of_measurement: "°C",
+                                friendly_name: "hotend 2"
                             }
                         },
                         'sensor.dbot_tool_bed_current_temperature' : {
@@ -76,6 +84,7 @@
                     monitored: [
                         "Status",
                         "Hotend",
+                        "Hotend2",
                         "Bed",
                         "Elapsed",
                         "ETA",
@@ -137,7 +146,7 @@
 
         </style>
 
-        <script src='./duetcard.js'></script>
+        <script src='./duet-card.js'></script>
 
     </head>
 
@@ -148,7 +157,7 @@
             <duet-card>
 
             </duet-card>
-            <dueteditor>
+            <duet-editor>
 
             </duet-editor>
         </div>

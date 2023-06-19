@@ -60,7 +60,9 @@ const temperature = (
     temperatureEntity: HassEntity,
     config: ThreedyConfig
 ) => {
-
+    if(!temperatureEntity){
+        return "-";
+    }
     const t: number = parseFloat(temperatureEntity.state);
     const u: ThreedyTemperatureUnit = temperatureUnitFromEntity(temperatureEntity);
     const tc: number = convertTemperature(t, u, config.temperature_unit || u);

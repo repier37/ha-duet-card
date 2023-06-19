@@ -7,7 +7,7 @@ import {Enum} from "../../../types";
 
 const Item = ({ item, selected, available, reorder, toggle }) => {
 
-
+console.log("item:", item);
     const active = selected.includes(item);
     const y = active ? 56 * selected.indexOf(item) : 56 * (selected.length + available.indexOf(item));
 

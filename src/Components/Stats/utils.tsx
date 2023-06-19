@@ -25,6 +25,8 @@ const getEntityName = (
             return `${baseName}_time_elapsed`
         case 'Hotend':
             return `${baseName}_tool_1_current_temperature`
+        case 'Hotend2':
+            return `${baseName}_tool_2_current_temperature`
         case 'Bed':
             return `${baseName}_tool_bed_current_temperature`
         case 'Progress':
@@ -101,14 +103,35 @@ const renderCondition = (
             )
 
         case ThreedyCondition.Hotend:
+            var HotEndEntity = getEntity(hass, getEntityName(config, condition));
+            var friendlyName = "Hotend";
+            if(HotEndEntity){
+                friendlyName = HotEndEntity.attributes.friendly_name;
+            }
+
             return (
                 <TemperatureStat
-                    name={"Hotend"}
-                    temperatureEntity={ getEntity(hass,getEntityName(config, condition)) }
+                    name={friendlyName}
+                    temperatureEntity={ HotEndEntity }
                     config={config}
                 />
             )
+        
+        case ThreedyCondition.Hotend2:
+            var HotEndEntity = getEntity(hass, getEntityName(config, condition));
+            var friendlyName = "Hotend 2";
+            console.log("hotend2");
+            if(HotEndEntity){
+                friendlyName = HotEndEntity.attributes.friendly_name;
+            }
 
+            return (
+                <TemperatureStat
+                    name={friendlyName}
+                    temperatureEntity={ HotEndEntity }
+                    config={config}
+                />
+            )
 
         default:
             return (
