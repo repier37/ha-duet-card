@@ -145,6 +145,10 @@ card:
 ## Limitations
 For the moment only the first tool of your printer can be displayed
 
+## Thank you !!
+If you found this useful you can thank me via donation :
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=GR74XEN538Y7L)
+
 ## Screenshots
 ---
 
@@ -165,7 +169,4 @@ For the moment only the first tool of your printer can be displayed
 ![ShowHide](https://media.giphy.com/media/14VgtFSulJkOaRiZFo/giphy.gif)
 
 
-## Thank you !!
-If you found this useful you can thank me via donation :
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=GR74XEN538Y7L)
 
