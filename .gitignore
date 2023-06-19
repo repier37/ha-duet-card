@@ -1,4 +1,7 @@
 node_modules/
 dist/bundle*
-dist/threedy-card*
 yarn-error.log
+.vs/ha-threedy-card/v17/.wsuo
+.gitignore
+.vs/*
+.gitignore
