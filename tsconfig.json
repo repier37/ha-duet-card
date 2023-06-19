@@ -11,5 +11,8 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true
   },
-  "exclude": ["build"]
+  "exclude": [
+    "build",
+    "dist",
+    "webpack.config.js"]
 }
