@@ -63,7 +63,7 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 2. Either:
   * Move to the ```www``` folder of your Home Assistant instance
   * Or copy the file's contents via the file editor.
-3. In the Resources section of Lovelace (```Configuration -> Lovelace Dashboards -> Resources```), add ```/local/threedy-card.js``` as a ```JavaScript Module```.
+3. In the Resources section of Lovelace (```Configuration -> Lovelace Dashboards -> Resources```), add ```/local/duet-card.js``` as a ```JavaScript Module```.
 4. Save
 5. Add a manual card to your lovelace dashboard using the configuration instructions below.
 6. Restart Server management
