@@ -8,9 +8,7 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-  - [Method 1: HACS](#method-1-hacs)
 - [Config](#config)
-  - [Graphical](#graphical)
 - [Example Config](#example-config)
 - [Custom Theming](#custom-theming)
 - [Limitations](#limitations)
@@ -42,8 +40,6 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 
 ## Installation
 ---
-### Method 1: HACS
-
 1. Go to [HACS](http://homeassistant.local:8123/hacs/frontend)
 2. Add custom repository 
    - repo: https://github.com/repier37/ha-duet-card
@@ -55,9 +51,6 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 
 ## Config
 ---
-
-### Graphical
-
 ![graphical](https://github.com/repier37/ha-duet-card/raw/master/screenshots/graphical.png)
 
 ## Example Config
