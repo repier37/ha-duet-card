@@ -41,7 +41,7 @@ class ThreedyEditor extends HTMLElement {
 
 }
 
-customElements.define('threedy-editor', ThreedyEditor);
+customElements.define('duet-editor', ThreedyEditor);
 
 
 class ThreedyCard extends HTMLElement {
@@ -85,7 +85,7 @@ class ThreedyCard extends HTMLElement {
 
 
     static getConfigElement() {
-        return document.createElement('threedy-editor');
+        return document.createElement('duet-editor');
     }
 
 
