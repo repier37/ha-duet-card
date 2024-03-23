@@ -52,7 +52,7 @@ This card has been taken from https://github.com/dangreco/threedy and has been m
 
 ```yaml
 # required
-type: 'custom:threedy-card'
+type: 'custom:duet-card'
 base_entity: 'sensor.ender_3_v2'
 name: 'Ender 3 v2'
 printer_type: I3
